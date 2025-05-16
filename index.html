@@ -7,20 +7,32 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Product list with cart</title>
+
+  <!-- FONTS -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inconsolata:wght@200..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
   
   <!-- CSS -->
    <link rel="stylesheet" href="./CSS/styles.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
   <main>
     
-    
     <h1>Desserts</h1>
+
+    <section class="foodMenu"></section>
+
+    <!-- <section>
+      <img src="" alt="">
+      <button class="addToCart"><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <section class="description">
+        <p class="category"></p>
+        <h3 class="foodNames"></h3>
+        <p class="price"></p>
+      </section>
+    </section> -->
     
     <!-- 
     Waffle with Berries
@@ -68,11 +80,14 @@
     6.50
     Add to Cart -->
   
-</main>
+  </main>
 
-  <section>
-    <h2>Your Cart (<!-- Quantity -->)</h2>
-    <p>Your added items will appear here</p>
+  <section class="cartSection">
+    <section class="yourCart">
+      <h2>Your Cart (<span id="cartCount">0</span>)</h2>
+      <img src="assets/images/illustration-empty-cart.svg" alt="empty cart">
+      <p>Your added items will appear here</p>
+    </section>
   </section>
 
   <div class="attribution">
