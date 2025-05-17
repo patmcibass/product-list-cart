@@ -12,6 +12,7 @@ const cartCount = document.querySelector('#cartCount')
 const myCart = document.querySelector('#myCart')
 const emptyCart = document.querySelector('#emptyCart')
 const cartFooter = document.querySelector('#cartTotalDiv')
+const orderTotal = document.querySelector('#orderTotal')
 
 let count = 0;
 
@@ -26,12 +27,12 @@ const createDiv = (obj) => {
   <section class="menuItem" id="menuItem${count}">
   <img class="foodImg" src="${obj.image.desktop}" alt="${obj.name}">
   <button class="addToCart" onClick="addItemToCart(${count})" id="${count}"><img src="./assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-  <div class="btnDiv none">
-    <button id="minusBtn">
+  <div id=plusMinusDiv${count} class="btnDiv none">
+    <button id="minusBtn${count}">
       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>
     </button>
-    <span id="itemCounter"></span>
-    <button id="plusBtn">
+    <span id="itemCounter${count}"></span>
+    <button id="plusBtn${count}">
       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
     </button>
   </div>
@@ -49,11 +50,23 @@ const createDiv = (obj) => {
 const buttonList = document.getElementsByClassName('addToCart')
 
 let itemCount = 1;
+let cartTotal = 0;
 
 function addItemToCart(id) {
+
+  // change button layout
+  const btn = document.getElementById(id)
+  btn.classList.add('none')
+  const plusMinusDiv = document.getElementById(`plusMinusDiv${id}`)
+  plusMinusDiv.classList.remove('none')
+  // ***********************************
+  // Need to style new div and buttons
+
+
   // retrieve item name and price
   const itemName = document.querySelector(`#name${id}`).textContent
   const itemPrice = Number(document.querySelector(`#price${id}`).textContent.split('$')[1])
+  const priceTimesCount = itemPrice * itemCount 
 
   console.log((itemPrice * 2).toFixed(2))
 
@@ -67,7 +80,7 @@ function addItemToCart(id) {
           <div>
             <span>${itemCount}x</span>
             <span>@$${itemPrice.toFixed(2)}</span>
-            <span>$${(itemPrice * itemCount).toFixed(2)}</span>
+            <span>$${priceTimesCount.toFixed(2)}</span>
           </div>
         </div>
 
@@ -78,11 +91,18 @@ function addItemToCart(id) {
       </section>
   `
 
+  // get cart total
+  cartTotal += priceTimesCount
+  orderTotal.textContent = `$${cartTotal.toFixed(2)}`
 
+}
 
-  // update cart to show item name
+// event listeners for plus buttons
+function plusItems(){
 
-  // show item price
+}
 
-  // show item count
+// event listeners for minus buttons
+function minusItems(){
+
 }
