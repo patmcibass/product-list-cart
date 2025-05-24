@@ -12,6 +12,7 @@ html {
 
 :root {
     --Red: hsl(14, 86%, 42%);
+    --Red-Dark: hsl(14, 84%, 31%);
     --Green: hsl(159, 69%, 38%);
 
     --Rose-50: hsl(20, 50%, 98%);
@@ -29,7 +30,7 @@ html {
     height: 0px;
 }
 
-body {
+body { 
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -74,7 +75,12 @@ h1 {
     border: 1px solid var(--Rose-100);
 }
 
-.addToCart {
+.redBorder {
+    border: 2px solid var(--Red);
+}
+
+.addToCart,
+.btnDiv {
     align-self: center;
     border-radius: 5rem;
     border: 1px solid var(--Rose-500);
@@ -90,10 +96,40 @@ h1 {
     background-color: var(--Rose-50);
 }
 
+.btnDiv {
+    background-color: var(--Red);
+    margin: -3rem 0 2rem 0;
+    gap: 2rem
+}
+
+.btnDiv button {
+    background-color: var(--Red);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--Rose-50);
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+}
+
+.plus-minusBtn:hover{
+    background-color: var(--Rose-50);
+}
+
 .addToCart:hover {
     color: var(--Red);
     border: 1px solid var(--Red);
     cursor: pointer;
+}
+
+.plus-minusBtn:hover > svg path {
+    fill: black;
+}
+
+.countSpanNumber {
+    color: var(--Rose-50);
 }
 
 .description {
@@ -202,6 +238,15 @@ h1 {
     width: 1.5rem;
     height: 1.5rem;
     padding: .2rem;
+    cursor: pointer;
+}
+
+.shoppingCartItem svg:hover {
+    border: 1px solid black;
+}
+
+.shoppingCartItem svg:hover path {
+    fill: black;
 }
 
 .cartFooter {
@@ -210,6 +255,7 @@ h1 {
     align-items: stretch;
     width: 100%;
     gap: 2rem;
+    margin: -4rem 0 0 0;
 }
 
 .total {
@@ -245,6 +291,11 @@ h1 {
     border: none;
     border-radius: 5rem;
     padding: 1.3rem;
+    cursor: pointer;
+}
+
+.confirmBtn:hover {
+    background-color: var(--Red-Dark);
 }
 /* footer */
 .attribution {
