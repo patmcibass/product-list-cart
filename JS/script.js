@@ -193,5 +193,32 @@ function removeNone(id){
 
 function removeItem(id) {
   const item = document.getElementById(`cartItem${id}`)
-  console.log(item)
+  const itemCountSpan = document.getElementById(`itemCount${id}`)
+  const itemPrice = Number(document.querySelector(`#price${id}`).textContent.split('$')[1])
+  const itemTotalPrice = document.getElementById(`itemTotalPrice${id}`)
+
+  // change order total
+  let itemCount = Number(itemCountSpan.textContent)
+  cartTotal -= itemCount * itemPrice
+  orderTotal.textContent = `$${cartTotal.toFixed(2)}`
+
+  // change item count and item total to 0
+  itemCount = 0
+  let priceTimesCount = itemPrice * itemCount
+  itemTotalPrice.textContent = `$${priceTimesCount.toFixed(2)}`
+  itemCountSpan.textContent = itemCount
+
+  // hide item from menu
+  item.classList.add('none')
+
+  // put btn back to add button
+  const btn = document.getElementById(id)
+  btn.classList.remove('none')
+  const plusMinusDiv = document.getElementById(`plusMinusDiv${id}`)
+  plusMinusDiv.classList.add('none')
+  const foodImg = document.getElementById(`foodImg${id}`)
+  foodImg.classList.remove('redBorder')
+
 }
+
+// CONFIRM BTN
